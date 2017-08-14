@@ -1,0 +1,40 @@
+#!/usr/bin/env node --harmony
+const request = require('request')
+const chalk = require('chalk')
+const ora = require('ora')
+const logger = require('../tools/logger')
+
+/**
+ * Padding.
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
+/**
+ * List repos.
+ */
+
+request({
+  url: 'https://api.github.com/repos/bingblue/mu-cli/branches',
+  headers: {
+    'User-Agent': 'mu-cli'
+  }
+},  (err, res, body) =>{
+  if (err) logger.fatal(err)
+  var requestBody = JSON.parse(body)
+  if (Array.isArray(requestBody)) {
+    console.log('  Available official templates:')
+    console.log()
+    requestBody.forEach(function (branch) {
+      console.log(
+        '  ' + chalk.yellow('★') +
+        '  ' + chalk.blue(branch.name) +
+        ' - ' + branch.description)
+    })
+  } else {
+    console.error(requestBody.message)
+  }
+})

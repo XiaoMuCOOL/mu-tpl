@@ -1,0 +1,44 @@
+#!/usr/bin/env node --harmony
+'use strict'
+process.env.NODE_PATH = __dirname + '/../node_modules/'
+const program = require('commander')
+
+ // 定义当前版本
+program
+  .version(require('../package').version )
+  .usage('<command> [options]')
+program
+	.command('init [name]','Generate a new project')
+  .alias('i')
+program
+  .command('list','List all the templates')
+  .parse(process.argv)
+// program
+// 	.command('add')
+// 	.description('Add a new template')
+//   .alias('a')
+//   .action(() => {
+//     require('../command/add')()
+//   })
+
+// program
+// 	.command('list')
+// 	.description('List all the templates')
+// 	.alias('l')
+// 	.action(() => {
+// 		require('../command/list')()
+// 	})
+
+// program
+// 	.command('init')
+// 	.description('Generate a new project')
+//   .alias('i')
+//   .action(() => {
+//     require('../command/init')()
+//   })
+
+// program.parse(process.argv)
+
+if(!program.args.length){
+  program.help()
+}
