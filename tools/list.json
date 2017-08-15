@@ -1,8 +1,16 @@
 {
   "tpl": {
-    "1": {
-      "url": "1",
-      "branch": "1"
+    "mu-jquery": {
+      "name":"mu-jquery",
+      "url": "https://github.com/bingblue/mu-cli/tree/mu-jquery",
+      "description":"Multi-page templates based on JQuery(基于JQuery的多页面模板)",
+      "isLocal": false
+    },
+    "local":{
+      "name":"local",
+      "url":"D:\\xiaomucool\\mu-cli",
+      "description":"本地模板1",
+      "isLocal": true
     }
   }
 }

@@ -1,12 +1,13 @@
-var chalk = require('chalk')
-var format = require('util').format
+const chalk = require('chalk')
+const format = require('util').format
+const ora = require('ora')();
 
 /**
  * Prefix.
  */
 
-var prefix = '   vue-cli'
-var sep = chalk.gray('·')
+const prefix = '   mu-cli'
+const sep = chalk.gray(' · ')
 
 /**
  * Log a `message` to the console.
@@ -14,9 +15,9 @@ var sep = chalk.gray('·')
  * @param {String} message
  */
 
-exports.log = function () {
-  var msg = format.apply(format, arguments)
-  console.log(chalk.white(prefix), sep, msg)
+exports.log = () => {
+  let msg = format.apply(format, arguments)
+  console.log(chalk.white(prefix),sep,msg)
 }
 
 /**
@@ -25,11 +26,11 @@ exports.log = function () {
  * @param {String} message
  */
 
-exports.fatal = function (message) {
+exports.fatal = (message)=> {
   if (message instanceof Error) message = message.message.trim()
-  var msg = format.apply(format, arguments)
-  console.error(chalk.red(prefix), sep, msg)
-  process.exit(1)
+    let msg = format.apply(format, arguments)
+    console.error(chalk.red(prefix), sep, msg)
+    process.exit(1)
 }
 
 /**
@@ -38,7 +39,25 @@ exports.fatal = function (message) {
  * @param {String} message
  */
 
-exports.success = function () {
-  var msg = format.apply(format, arguments)
-  console.log(chalk.white(prefix), sep, msg)
+exports.success = () => {
+  let msg = format.apply(format, arguments)
+  console.success(chalk.white(prefix), sep, msg)
+}
+/**
+ * 带图标的输出.
+ *
+ * @param {String} message
+ */
+exports.error = (message)=> {
+  ora.fail(chalk.red(prefix+sep+message))
+  process.exit(1)
+}
+exports.successd = (message)=> {
+  ora.succeed(chalk.green(prefix+sep+message))
+}
+exports.warn = (message)=> {
+  ora.warn(chalk.yellow(prefix+sep+message))
+}
+exports.info = (message)=> {
+  ora.info(chalk.blue(prefix+sep+message))
 }

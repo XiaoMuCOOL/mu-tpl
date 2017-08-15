@@ -1,8 +1,8 @@
 #!/usr/bin/env node --harmony
 const request = require('request')
 const chalk = require('chalk')
-const ora = require('ora')
 const logger = require('../tools/logger')
+const list = require('../tools/list')
 
 /**
  * Padding.
@@ -18,23 +18,30 @@ process.on('exit', function () {
  */
 
 request({
-  url: 'https://api.github.com/repos/bingblue/mu-cli/branches',
+  url: 'https://raw.githubusercontent.com/XiaoMuCOOL/mu-cli/master/tools/list.json',
   headers: {
     'User-Agent': 'mu-cli'
   }
 },  (err, res, body) =>{
   if (err) logger.fatal(err)
-  var requestBody = JSON.parse(body)
-  if (Array.isArray(requestBody)) {
-    console.log('  Available official templates:')
-    console.log()
-    requestBody.forEach(function (branch) {
-      console.log(
-        '  ' + chalk.yellow('★') +
-        '  ' + chalk.blue(branch.name) +
-        ' - ' + branch.description)
-    })
-  } else {
-    console.error(requestBody.message)
+  let reqTpl = JSON.parse(body).tpl
+  let localTpl = list.tpl
+  for(let tpl in reqTpl){
+    if(!localTpl[tpl]){
+      localTpl[tpl] = reqTpl[tpl]
+    }
+  }
+  logger.suc('Available templates(可用的模板有):')
+  console.log()
+  for(let index in localTpl){
+    let tpl = localTpl[index]
+    let strLocal = "official(官方)"
+    if(tpl.isLocal){
+      strLocal = "local   (本地)"
+    }
+    console.log(
+      '  ' + chalk.yellow('★') +
+      '  ' + chalk.gray(strLocal+'  ') + chalk.blue(tpl.name) +
+      ' - ' + tpl.description)
   }
 })
