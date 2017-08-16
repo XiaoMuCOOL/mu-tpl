@@ -3,9 +3,10 @@ const request = require('request')
 const chalk = require('chalk')
 const logger = require('../tools/logger')
 const list = require('../tools/list')
+const fs = require('fs')
 
 /**
- * Padding.
+ * Padding
  */
 
 console.log()
@@ -14,9 +15,9 @@ process.on('exit', function () {
 })
 
 /**
- * List repos.
+ * List repos
  */
-
+let isChange = false
 request({
   url: 'https://raw.githubusercontent.com/XiaoMuCOOL/mu-cli/master/tools/list.json',
   headers: {
@@ -24,14 +25,26 @@ request({
   }
 },  (err, res, body) =>{
   if (err) logger.fatal(err)
-  let reqTpl = JSON.parse(body).tpl
-  let localTpl = list.tpl
+  let reqTpl = JSON.parse(body)
+  let localTpl = list
+
   for(let tpl in reqTpl){
     if(!localTpl[tpl]){
       localTpl[tpl] = reqTpl[tpl]
+      isChange = true
     }
   }
-  logger.suc('Available templates(可用的模板有):')
+  if (isChange) {
+    fs.writeFile(
+      __dirname + "/../tools/list.json",
+      JSON.stringify(localTpl),
+      "utf-8",
+      err => {
+        if (err) logger.fatal(err)
+      }
+    )
+  }
+  logger.successd('Available templates(可用的模板有):')
   console.log()
   for(let index in localTpl){
     let tpl = localTpl[index]

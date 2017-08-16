@@ -41,7 +41,7 @@ exports.fatal = (message)=> {
 
 exports.success = () => {
   let msg = format.apply(format, arguments)
-  console.success(chalk.white(prefix), sep, msg)
+  console.log(chalk.green(prefix), sep, msg)
 }
 /**
  * 带图标的输出.
