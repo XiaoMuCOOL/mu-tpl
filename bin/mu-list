@@ -44,6 +44,7 @@ request({
     )
   }
   logger.successd('Available templates(可用的模板有):')
+  console.log()
   for(let index in localTpl){
     let tpl = localTpl[index]
     let strLocal = "official(官方)"
