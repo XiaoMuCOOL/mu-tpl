@@ -1,6 +1,6 @@
 {
   "name": "mu-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Mu-CLI是各种前端框架的脚手架",
   "author": {
     "name": "XiaoMuCOOL",
@@ -9,7 +9,10 @@
   },
   "main": "index.js",
   "bin": {
-    "mu": "bin/mu"
+    "mu": "bin/mu",
+    "mu-init": "bin/mu-init",
+    "mu-list": "bin/mu-list",
+    "mu-add": "bin/mu-build"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
