@@ -19,9 +19,9 @@ process.on('exit', function () {
  */
 let isChange = false
 request({
-  url: 'https://raw.githubusercontent.com/XiaoMuCOOL/mu-cli/master/tools/list.json',
+  url: 'https://raw.githubusercontent.com/XiaoMuCOOL/mu-tpl/master/tools/list.json',
   headers: {
-    'User-Agent': 'mu-cli'
+    'User-Agent': 'mu-tpl'
   }
 },  (err, res, body) =>{
   if (err) logger.fatal(err)

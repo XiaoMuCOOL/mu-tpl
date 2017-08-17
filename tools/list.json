@@ -6,7 +6,7 @@
   },
   "local": {
     "name": "local",
-    "url": "local:D:\\Mu-CLI",
+    "url": "local:D:\\Mu-TPL",
     "description": "本地模板1",
     "isLocal": true
   },

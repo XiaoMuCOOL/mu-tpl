@@ -6,7 +6,7 @@ const ora = require('ora')();
  * Prefix.
  */
 
-const prefix = '   mu-cli'
+const prefix = '   mu-tpl'
 const sep = chalk.gray(' · ')
 
 /**

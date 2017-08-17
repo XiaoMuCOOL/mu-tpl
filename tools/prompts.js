@@ -18,7 +18,7 @@ class Prompts {
       type:"input",
       name:"projectName",
       message:"Project name(项目名称) - ",
-      default:"Mu-CLI"
+      default:"mu-tpl"
     },{
       type:"input",
       name:"author",
@@ -28,7 +28,7 @@ class Prompts {
       type:"input",
       name:"description",
       message:"Project description(项目介绍) - ",
-      default:"基于Mu-CLI生成的项目"
+      default:"基于mu-tpl生成的项目"
     },{
       type:"list",
       name:"template",
@@ -104,7 +104,7 @@ class Prompts {
       type:"input",
       name:"url",
       message:"Absolute path(绝对路径) - ",
-      default:'D:\\template\\mu-cli',
+      default:'D:\\template\\mu-tpl',
       validate(value){
         var pass = value.trim().match(/^[./]|(^[a-zA-Z]:)/i)
         if (pass) {
