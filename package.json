@@ -1,7 +1,7 @@
 {
-  "name": "mu-cli",
+  "name": "mu-tpl",
   "version": "0.0.1",
-  "description": "Mu-CLI是各种前端框架的脚手架",
+  "description": "Mu-TPL是各种前端框架的脚手架",
   "author": {
     "name": "XiaoMuCOOL",
     "url": "http://weibo.com/xiaomucool",
@@ -19,17 +19,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XiaoMuCOOL/mu-cli.git"
+    "url": "git+https://github.com/XiaoMuCOOL/mu-tpl.git"
   },
   "keywords": [
     "Webpack",
-    "Mu-cli"
+    "Mu-tpl"
   ],
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/XiaoMuCOOL/mu-cli/issues"
+    "url": "https://github.com/XiaoMuCOOL/mu-tpl/issues"
   },
-  "homepage": "https://github.com/XiaoMuCOOL/mu-cli#readme",
+  "homepage": "https://github.com/XiaoMuCOOL/mu-tpl#readme",
   "dependencies": {
     "async": "^2.5.0",
     "chalk": "^1.1.3",

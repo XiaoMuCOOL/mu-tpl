@@ -7,9 +7,9 @@
 	<a href="https://standardjs.com">
 		<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg">
 	</a>
-  <h1>Mu-CLI</h1>
+  <h1>Mu-TPL</h1>
   <p>
-    Mu-CLI是各种前端框架的脚手架
+    Mu-TPL是各种前端框架的脚手架
   <p>
   <br>
   <br>
@@ -25,7 +25,7 @@
 
 **官网** ： www.bingblue.com
 
-## Mu-CLI 涉及技术
+## Mu-TPL 涉及技术
 
 -"chalk": "^1.1.3",     //命令行彩色输出
 -"commander": "^2.11.0" //TJ大神开发的工具，能够更好地组织和处理命令行的输入 
@@ -35,7 +35,7 @@
 
 ## License
 
-**Mu-CLI** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/bingblue/mu-cli/blob/master/LICENSE)
+**Mu-TPL** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/bingblue/mu-cli/blob/master/LICENSE)
 
 Copyright © 2017 · 滨清科技 , Inc. 
 
