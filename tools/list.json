@@ -1,16 +1,19 @@
 {
-  "tpl": {
-    "mu-jquery": {
-      "name":"mu-jquery",
-      "url": "https://github.com/bingblue/mu-cli/tree/mu-jquery",
-      "description":"Multi-page templates based on JQuery(基于JQuery的多页面模板)",
-      "isLocal": false
-    },
-    "local":{
-      "name":"local",
-      "url":"D:\\xiaomucool\\mu-cli",
-      "description":"本地模板1",
-      "isLocal": true
-    }
+  "mu-jquery": {
+    "name": "mu-jquery",
+    "url": "github:bingblue/mu-cli#mu-jquery",
+    "description": "Multi-page templates based on JQuery(基于JQuery的多页面模板)"
+  },
+  "local": {
+    "name": "local",
+    "url": "local:D:\\Mu-CLI",
+    "description": "本地模板1",
+    "isLocal": true
+  },
+  "mu-template": {
+    "name": "mu-template",
+    "url": "github:bingblue/mutemplate#grunt",
+    "description": "a local template",
+    "isLocal": true
   }
 }

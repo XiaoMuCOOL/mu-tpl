@@ -1,0 +1,48 @@
+#!/usr/bin/env node --harmony
+const inquirer = require('inquirer')
+const logger = require('../tools/logger')
+const list = require('../tools/list')
+const fs = require('fs')
+const prompts = require('../tools/prompts')
+
+/**
+ * Padding
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
+/**
+ * Add template
+ */
+inquirer.prompt(prompts.getAddTemplatePrompts()).then((answers)=> {
+  let localTpl = list
+  if(localTpl[answers.name]){
+    logger.error('The template already exists(模板已存在)')
+    return false
+  }
+  if(answers.confirm){
+    localTpl[answers.name] = {
+      name: answers.name,
+      url: answers.repo+answers.url,
+      description: answers.description,
+      isLocal: true,
+      clone: answers.repo == 'gitlab:'
+    }
+    fs.writeFile(
+      __dirname + "/../tools/list.json",
+      JSON.stringify(localTpl),
+      "utf-8",
+      err => {
+        if (err) logger.error('Failed to add template(模板添加失败)!')
+        logger.successd('Added template success(添加模板成功)!')
+      }
+    )
+  }else{
+    logger.error('You canceled the operation(你的锅,你取消了添加)!')
+  }
+}).catch(err=>{
+  logger.error('Failed to add template(模板添加失败)!')
+})

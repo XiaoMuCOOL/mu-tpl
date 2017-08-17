@@ -2,42 +2,33 @@
 'use strict'
 process.env.NODE_PATH = __dirname + '/../node_modules/'
 const program = require('commander')
+const chalk = require('chalk')
 
- // 定义当前版本
+// 定义当前版本
 program
   .version(require('../package').version )
   .usage('<command> [options]')
 program
-	.command('init [name]','Generate a new project')
+	.command('init','Generate a new project(生成一个新的项目)')
   .alias('i')
 program
-  .command('list','List all the templates')
-  .parse(process.argv)
-// program
-// 	.command('add')
-// 	.description('Add a new template')
-//   .alias('a')
-//   .action(() => {
-//     require('../command/add')()
-//   })
+  .command('add','add a new template(添加一个新模板)')
+program
+  .command('list','List all the templates(模板列表)')
 
-// program
-// 	.command('list')
-// 	.description('List all the templates')
-// 	.alias('l')
-// 	.action(() => {
-// 		require('../command/list')()
-// 	})
-
-// program
-// 	.command('init')
-// 	.description('Generate a new project')
-//   .alias('i')
-//   .action(() => {
-//     require('../command/init')()
-//   })
-
-// program.parse(process.argv)
+program.on('--help', function () {
+  console.log()
+  console.log('  Examples:')
+  console.log()
+  console.log(chalk.gray('    # Generate a new project(生成一个新的项目)'))
+  console.log('    $ mu init')
+  console.log()
+  console.log(chalk.gray('    # List all the templates(模板列表)'))
+  console.log('    $ mu list')
+  console.log()
+})
+program
+.parse(process.argv)
 
 if(!program.args.length){
   program.help()
