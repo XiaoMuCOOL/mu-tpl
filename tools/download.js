@@ -56,7 +56,7 @@ class Download {
             err.message = `[${file}] ${err.message}`
             return next(err)
           }
-          files[file].contents = Buffer.alloc(res)
+          files[file].contents = Buffer.from(res)
           next()
         })
       }, done)
@@ -73,7 +73,7 @@ class Download {
     .build(function (err, files) {
       if (err) logger.error(err)
       for (let file of obj.del) {
-        rm('./' + obj.src + '/' + file)
+        rm('./' + obj.dest + '/' + file)
       }
       logger.successd('Success to Generate project(成功生成项目)!')
       // 自动安装npm

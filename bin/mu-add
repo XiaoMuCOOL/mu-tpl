@@ -28,8 +28,7 @@ inquirer.prompt(prompts.getAddTemplatePrompts()).then((answers)=> {
       name: answers.name,
       url: answers.repo+answers.url,
       description: answers.description,
-      isLocal: true,
-      clone: answers.repo == 'gitlab:'
+      isLocal: true
     }
     fs.writeFile(
       __dirname + "/../tools/list.json",

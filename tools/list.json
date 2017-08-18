@@ -1,13 +1,13 @@
 {
-  "mu-simple": {
-    "name": "mu-simple",
-    "url": "github:xiaomucool/mu-templates#mu-simple",
-    "description": "A simple template(最简单的模板，无构建工具)"
-  },
   "mu-jquery": {
     "name": "mu-jquery",
     "url": "github:xiaomucool/mu-templates#mu-jquery",
     "description": "Multi-page template based on JQuery(基于JQuery的前端多页面模板)"
+  },
+  "mu-simple": {
+    "name": "mu-simple",
+    "url": "github:xiaomucool/mu-templates#mu-simple",
+    "description": "A simple template(最简单的模板，无构建工具)"
   },
   "mu-grunt": {
     "name": "mu-grunt",
