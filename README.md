@@ -32,6 +32,10 @@
 
 ```console
 $ npm install -g mu-tpl
+
+//or 使用国内镜像
+
+$ cnpm i -g mu-tpl
 ```
 
 ## Usage
