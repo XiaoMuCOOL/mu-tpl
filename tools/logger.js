@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 const format = require('util').format
-const ora = require('ora')();
+const ora = require('ora')()
 
 /**
  * Prefix.
@@ -17,7 +17,7 @@ const sep = chalk.gray(' · ')
 
 exports.log = () => {
   let msg = format.apply(format, arguments)
-  console.log(chalk.white(prefix),sep,msg)
+  console.log(chalk.white(prefix), sep, msg)
 }
 
 /**
@@ -26,11 +26,11 @@ exports.log = () => {
  * @param {String} message
  */
 
-exports.fatal = (message)=> {
+exports.fatal = (message) => {
   if (message instanceof Error) message = message.message.trim()
-    let msg = format.apply(format, arguments)
-    console.error(chalk.red(prefix), sep, msg)
-    process.exit(1)
+  let msg = format.apply(format, arguments)
+  console.error(chalk.red(prefix), sep, msg)
+  process.exit(1)
 }
 
 /**
@@ -48,20 +48,20 @@ exports.success = () => {
  *
  * @param {String} message
  */
-exports.error = (message)=> {
+exports.error = (message) => {
   console.log()
-  ora.fail(chalk.red(prefix+sep+message))
+  ora.fail(chalk.red(prefix + sep + message))
   process.exit(1)
 }
-exports.successd = (message)=> {
+exports.successd = (message) => {
   console.log()
-  ora.succeed(chalk.green(prefix+sep+message))
+  ora.succeed(chalk.green(prefix + sep + message))
 }
-exports.warn = (message)=> {
+exports.warn = (message) => {
   console.log()
-  ora.warn(chalk.yellow(prefix+sep+message))
+  ora.warn(chalk.yellow(prefix + sep + message))
 }
-exports.info = (message)=> {
+exports.info = (message) => {
   console.log()
-  ora.info(chalk.blue(prefix+sep+message))
+  ora.info(chalk.blue(prefix + sep + message))
 }

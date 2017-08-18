@@ -14,31 +14,31 @@ class Download {
   constructor () {
     this.visions = '0.0.1'
   }
-  getTemplateRepo(url){
-    let index = url.indexOf(":");
-    let repo = url.substr(0,index)
-    let uri = url.substr(index+1,url.length)
+  getTemplateRepo (url) {
+    let index = url.indexOf(':')
+    let repo = url.substr(0, index)
+    let uri = url.substr(index + 1, url.length)
     let obj = {
       repo: repo,
       uri: uri,
       url: url,
-      clone: repo == 'gitlab'
+      clone: repo === 'gitlab'
     }
     return obj
   }
-  getTemplatePath(templatePath) {
+  getTemplatePath (templatePath) {
     return path.isAbsolute(templatePath)
       ? templatePath
       : path.normalize(path.join(process.cwd(), templatePath))
   }
-  getTemplate (info,tmp,done) {
+  getTemplate (info, tmp, done) {
     let spinner = ora('downloading template(正在下载模板中) ...')
     spinner.start()
     if (exists(tmp)) rm(tmp)
     downloadGitRepo(info.url, tmp, { clone: info.clone }, function (err) {
       spinner.stop()
       if (err) logger.error('Failed to download repo ' + info.url + ' (下载模板失败): ' + err.message.trim())
-      logger.successd('Successd to download repo '+ info.url+' (下载模板成功)!')
+      logger.successd('Successd to download repo ' + info.url + ' (下载模板成功)!')
       done()
     })
   }
@@ -56,14 +56,14 @@ class Download {
             err.message = `[${file}] ${err.message}`
             return next(err)
           }
-          files[file].contents = new Buffer(res)
+          files[file].contents = Buffer.alloc(res)
           next()
         })
       }, done)
     }
   }
   moveLocalFiles (obj) {
-    let that = this;
+    let that = this
     Metalsmith('.')
     .metadata(obj.metadata)
     .source(obj.src)
@@ -71,21 +71,21 @@ class Download {
     .clean(false)
     .use(that.getTemplateFiles())
     .build(function (err, files) {
-      if(err) logger.error(err)
-      for(let file of obj.del){
-        rm('./'+obj.src+'/'+file)
+      if (err) logger.error(err)
+      for (let file of obj.del) {
+        rm('./' + obj.src + '/' + file)
       }
       logger.successd('Success to Generate project(成功生成项目)!')
-      //自动安装npm
-      if(obj.auto){
+      // 自动安装npm
+      if (obj.auto) {
         that.autoInstall(obj.dest)
       }
     })
   }
-  autoInstall (projectName){
+  autoInstall (projectName) {
     let spinner = ora('Auto npm install(自动安装依赖中) ...')
     spinner.start()
-    let cmdStr = 'cd '+ projectName +' && npm i'
+    let cmdStr = 'cd ' + projectName + ' && npm i'
     exec(cmdStr, (err, stdout, stderr) => {
       spinner.stop()
       if (err) logger.error(err)

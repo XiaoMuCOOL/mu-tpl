@@ -8,7 +8,6 @@
     "QQ": "895355044"
   },
   "preferGlobal": true,
-  "main": "index.js",
   "bin": {
     "mu": "bin/mu",
     "mu-init": "bin/mu-init",
@@ -16,7 +15,8 @@
     "mu-add": "bin/mu-build"
   },
   "scripts": {
-    "start": "mu"
+    "start": "mu",
+    "lint": "standard --fix"
   },
   "repository": {
     "type": "git",
@@ -47,5 +47,8 @@
     "ora": "^1.3.0",
     "request": "^2.81.0"
   },
-  "readme": "ERROR: No README data found!"
+  "readme": "ERROR: No README data found!",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
 }
