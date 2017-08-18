@@ -8,6 +8,7 @@ const logger = require('./logger')
 const async = require('async')
 const render = require('consolidate').handlebars.render
 const Metalsmith = require('metalsmith')
+const exec = require('child_process').exec
 
 class Download {
   constructor () {
@@ -62,19 +63,33 @@ class Download {
     }
   }
   moveLocalFiles (obj) {
-    Metalsmith(__dirname)
+    let that = this;
+    Metalsmith('.')
     .metadata(obj.metadata)
     .source(obj.src)
     .destination(obj.dest)
     .clean(false)
-    .use(this.getTemplateFiles())
+    .use(that.getTemplateFiles())
     .build(function (err, files) {
       if(err) logger.error(err)
       for(let file of obj.del){
-        rm(__dirname+'/../**/'+file)
+        rm('./'+obj.src+'/'+file)
       }
       logger.successd('Success to Generate project(成功生成项目)!')
       //自动安装npm
+      if(obj.auto){
+        that.autoInstall(obj.dest)
+      }
+    })
+  }
+  autoInstall (projectName){
+    let spinner = ora('Auto npm install(自动安装依赖中) ...')
+    spinner.start()
+    let cmdStr = 'cd '+ projectName +' && npm i'
+    exec(cmdStr, (err, stdout, stderr) => {
+      spinner.stop()
+      if (err) logger.error(err)
+      logger.successd('Successd to npm install(依赖安装成功)!')
     })
   }
 }

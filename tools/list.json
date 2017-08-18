@@ -1,19 +1,17 @@
 {
+  "mu-simple": {
+    "name": "mu-simple",
+    "url": "github:xiaomucool/mu-templates#mu-simple",
+    "description": "A simple template(最简单的模板，无构建工具)"
+  },
   "mu-jquery": {
     "name": "mu-jquery",
-    "url": "github:bingblue/mu-cli#mu-jquery",
-    "description": "Multi-page templates based on JQuery(基于JQuery的多页面模板)"
+    "url": "github:xiaomucool/mu-templates#mu-jquery",
+    "description": "Multi-page template based on JQuery(基于JQuery的前端多页面模板)"
   },
-  "local": {
-    "name": "local",
-    "url": "local:D:\\Mu-TPL",
-    "description": "本地模板1",
-    "isLocal": true
-  },
-  "mu-template": {
-    "name": "mu-template",
-    "url": "github:bingblue/mutemplate#grunt",
-    "description": "a local template",
-    "isLocal": true
+  "mu-grunt": {
+    "name": "mu-grunt",
+    "url": "github:xiaomucool/mu-templates#mu-grunt",
+    "description": "Template based on Grunt(基于Grunt构建的前端模板)"
   }
 }

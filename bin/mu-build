@@ -1,0 +1,23 @@
+#!/usr/bin/env node --harmony
+'use strict'
+const chalk = require('chalk')
+
+console.log()
+console.log('  Notes:')
+console.log()
+console.log(chalk.gray('    # Publish your template(发布模板)'))
+console.log()
+console.log('        '+chalk.blue('You can add all the templates you want(你可以增加所有你想要的模板)'))
+console.log()
+console.log('        '+chalk.yellow('No need to copy and paste each time(无需每次复制粘贴)'))
+console.log()
+console.log('        '+chalk.green('If you think your template is very good(如果你觉得你的模板非常好)'))
+console.log()
+console.log('        '+chalk.magenta('Please contact me to join the official template(请联系我，加入官方模板)!'))
+console.log()
+console.log(chalk.gray('    # Contact me(联系方式): '))
+console.log()
+console.log('        '+chalk.green('QQ:895355044'))
+console.log()
+console.log('        '+chalk.cyan('QQ群:215259343'))
+console.log()

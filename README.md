@@ -10,7 +10,9 @@
   <h1>Mu-TPL</h1>
   <br>
   <p>
-    mu-tpl是各种前端框架的脚手架
+    Mu-tpl is a variety of framework scaffold generators, quick custom templates.
+    <br>
+    各种框架脚手架的生成器，快速自定义模板。
   <p>
   <br>
   <br>
@@ -22,9 +24,41 @@
 
 **QQ号** ： 895355044
 
-**QQ群** ： 206683621
+**QQ群** ： 215259343
 
 **官网** ： www.bingblue.com
+
+## Install
+
+```console
+$ npm install -g mu-tpl
+```
+
+## Usage
+
+```cmd
+Examples:
+
+    # Generate a new project(生成一个新的项目)
+    $ mu init
+
+    # Add a new template(添加一个新模板)
+    $ mu add
+
+    # List all the templates(模板列表)
+    $ mu list
+```
+## Tips
+### mu add
+```cmd
+You can add all the templates you want,Such as on a local disk (你可以增加所有你想要的模板包括本地磁盘上)
+
+No need to copy and paste each time(无需每次复制粘贴)
+
+If you think your template is very good(如果你觉得你的模板非常好)
+
+Please contact me to join the official template(请联系我，加入官方模板)!
+```
 
 ## Mu-TPL 涉及技术
 
@@ -42,7 +76,7 @@
 
 ## License
 
-**Mu-TPL** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/bingblue/mu-tpl/blob/master/LICENSE)
+**Mu-TPL** is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3. [View the license file](https://github.com/xiaomucool/mu-tpl/blob/master/LICENSE)
 
 Copyright © 2017 · 滨清科技 , Inc. 
 

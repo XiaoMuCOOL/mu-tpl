@@ -21,22 +21,24 @@ process.on('exit', ()=>{
 let parm = program.args
 inquirer.prompt(prompts.getOfficialPrompts()).then((answers)=> {
   let info =  download.getTemplateRepo(answers.template);
-  let dest = answers.newFolder? answers.projectName : './'
+  let downDest = answers.newFolder? answers.projectName : './'
+  let moveDest = answers.newFolder? answers.projectName : ''
   let obj = {
     metadata:{
       projectName: answers.projectName, 
       author: answers.author, 
       description: answers.description
     },
-    src: '../'+answers.projectName,
-    dest: '../'+dest,
+    src: moveDest,
+    dest: moveDest,
+    auto:  answers.auto,
     del: ['LICENSE','README.md']
   }
   if(info.repo == 'local'){
     obj.src = info.uri
     download.moveLocalFiles(obj)
   }else{
-    download.getTemplate(info,dest,()=>{
+    download.getTemplate(info,downDest,()=>{
       download.moveLocalFiles(obj)
     })
   }

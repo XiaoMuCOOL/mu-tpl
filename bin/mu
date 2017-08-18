@@ -1,20 +1,21 @@
 #!/usr/bin/env node --harmony
 'use strict'
-process.env.NODE_PATH = __dirname + '/../node_modules/'
 const program = require('commander')
 const chalk = require('chalk')
 
 // 定义当前版本
 program
   .version(require('../package').version )
-  .usage('<command> [options]')
+  .usage('<command>')
 program
 	.command('init','Generate a new project(生成一个新的项目)')
   .alias('i')
 program
-  .command('add','add a new template(添加一个新模板)')
+  .command('add','Add a new template(添加一个新模板)')
 program
   .command('list','List all the templates(模板列表)')
+program
+  .command('build','Publish your template(发布模板)')
 
 program.on('--help', function () {
   console.log()
@@ -22,6 +23,9 @@ program.on('--help', function () {
   console.log()
   console.log(chalk.gray('    # Generate a new project(生成一个新的项目)'))
   console.log('    $ mu init')
+  console.log()
+  console.log(chalk.gray('    # Add a new template(添加一个新模板)'))
+  console.log('    $ mu add')
   console.log()
   console.log(chalk.gray('    # List all the templates(模板列表)'))
   console.log('    $ mu list')

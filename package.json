@@ -1,12 +1,13 @@
 {
   "name": "mu-tpl",
-  "version": "0.0.2",
-  "description": "Mu-TPL是各种前端框架的脚手架",
+  "version": "0.9.0",
+  "description": "Mu-tpl is a variety of framework scaffold generators, quick custom templates.(各种框架脚手架的生成器，快速自定义模板。)",
   "author": {
     "name": "XiaoMuCOOL",
     "url": "http://weibo.com/xiaomucool",
     "QQ": "895355044"
   },
+  "preferGlobal": true,
   "main": "index.js",
   "bin": {
     "mu": "bin/mu",
@@ -15,15 +16,19 @@
     "mu-add": "bin/mu-build"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "mu"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/XiaoMuCOOL/mu-tpl.git"
   },
   "keywords": [
-    "Webpack",
-    "Mu-tpl"
+    "Mu-tpl",
+    "template",
+    "bingblue",
+    "grunt",
+    "cli",
+    "Webpack"
   ],
   "license": "GPL-3.0",
   "bugs": {
