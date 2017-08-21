@@ -20,6 +20,8 @@
 
 ## 基本信息
 
+[![Join the chat at https://gitter.im/mu-tpl/Lobby](https://badges.gitter.im/mu-tpl/Lobby.svg)](https://gitter.im/mu-tpl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **作者** ： 小牧COOL
 
 **QQ号** ： 895355044
