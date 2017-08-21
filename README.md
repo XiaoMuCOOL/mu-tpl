@@ -4,8 +4,17 @@
   </a>
   <br>
   <br>
+	<a href="https://www.npmjs.com/package/mu-tpl">
+		<img src="https://img.shields.io/npm/v/mu-tpl.svg">
+	</a>
 	<a href="https://standardjs.com">
 		<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg">
+	</a>
+	<a href="https://gitter.im/mu-tpl/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link">
+		<img src="https://badges.gitter.im/mu-tpl/mu-tpl.svg">
+	</a>
+	<a href="https://jq.qq.com/?_wv=1027&k=5tyQDAd">
+		<img src="https://img.shields.io/badge/QQ%20Group-215259343-blue.svg">
 	</a>
   <h1>Mu-TPL</h1>
   <br>
