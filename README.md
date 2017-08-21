@@ -33,13 +33,13 @@
 
 **QQ号** ： 895355044
 
-**QQ群** ： 215259343
+**QQ群** ： [215259343][12]
 
 **官网** ： www.bingblue.com
 
 ## Install
 
-```console
+```shell
 $ npm install -g mu-tpl
 
 //or 使用国内镜像
@@ -106,3 +106,4 @@ All Rights Reserved · Powered by : **小牧COOL**
 [9]:https://github.com/caolan/async
 [10]:https://github.com/request/request
 [11]:https://github.com/isaacs/rimraf
+[12]:https://jq.qq.com/?_wv=1027&k=5tyQDAd
