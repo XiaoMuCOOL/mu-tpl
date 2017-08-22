@@ -83,6 +83,7 @@ class Download {
     })
   }
   autoInstall (projectName) {
+    console.log()
     let spinner = ora('Auto npm install(自动安装依赖中) ...')
     spinner.start()
     let cmdStr = 'cd ' + projectName + ' && npm i'
