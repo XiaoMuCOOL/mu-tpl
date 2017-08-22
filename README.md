@@ -10,6 +10,9 @@
 	<a href="https://standardjs.com">
 		<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg">
 	</a>
+  <a href="https://github.com/stylelint/stylelint">
+		<img src="https://img.shields.io/badge/css%20style-stylelint-brightgreen.svg">
+	</a>
 	<a href="https://gitter.im/mu-tpl/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link">
 		<img src="https://badges.gitter.im/mu-tpl/mu-tpl.svg">
 	</a>
