@@ -47,9 +47,6 @@ class Prompts {
     }]
     return questions
   }
-  getLocalPrompts () {
-
-  }
   getAddTemplatePrompts () {
     let questions = [{
       type: 'input',

@@ -48,7 +48,7 @@ class Download {
       let metalsmithMetadata = metalsmith.metadata()
       async.each(keys, function (file, next) {
         var str = files[file].contents.toString()
-        if (!/{{([^{}]+)}}/g.test(str)) {
+        if (!/(index|header|package|home)\./g.test(file) || !/{{([^{}]+)}}/g.test(str)) {
           return next()
         }
         render(str, metalsmithMetadata, function (err, res) {
