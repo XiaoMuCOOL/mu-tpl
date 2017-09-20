@@ -65,7 +65,7 @@ Examples:
     $ mu list
 ```
 ## Tips
-### mu add
+
 ```cmd
 You can add all the templates you want,Such as on a local disk (你可以增加所有你想要的模板包括本地磁盘上)
 

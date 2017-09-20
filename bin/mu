@@ -34,6 +34,15 @@ program.on('--help', function () {
 program
 .parse(process.argv)
 
+/**
+ * Padding
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
 if(!program.args.length){
   program.help()
 }

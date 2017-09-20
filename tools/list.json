@@ -7,7 +7,12 @@
   "mu-jquery": {
     "name": "mu-jquery",
     "url": "github:xiaomucool/mu-templates#mu-jquery",
-    "description": "Multi-page template based on JQuery(基于JQuery的前端多页面模板)"
+    "description": "Multi-page template based on JQuery with webpack(基于webpack和JQuery的前端多页面模板)"
+  },
+  "mu-gulp": {
+    "name": "mu-gulp",
+    "url": "github:xiaomucool/mu-templates#mu-gulp",
+    "description": "Frontend automation based on JAVA directory structure with gulp(基于gulp和JAVA目录结构的前端自动化)"
   },
   "mu-grunt": {
     "name": "mu-grunt",

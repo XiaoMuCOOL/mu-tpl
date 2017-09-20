@@ -1,5 +1,14 @@
 #!/usr/bin/env node --harmony
 'use strict'
+/**
+ * Padding
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
 const chalk = require('chalk')
 
 console.log()
