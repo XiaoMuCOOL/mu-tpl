@@ -1,45 +1,43 @@
 #!/usr/bin/env node --harmony
-
 'use strict'
-const program = require('commander')
 const inquirer = require('inquirer')
 const prompts = require('../tools/prompts')
 const download = require('../tools/download')
-const logger = require('../tools/logger')
 
 /**
  * Padding
  */
 console.log()
-process.on('exit', ()=>{
+process.on('exit', () => {
   console.log()
 })
 
 /**
  * Generate template
  */
-let parm = program.args
-inquirer.prompt(prompts.getOfficialPrompts()).then((answers)=> {
-  let info =  download.getTemplateRepo(answers.template);
-  let downDest = answers.newFolder? answers.projectName : './'
-  let moveDest = answers.newFolder? answers.projectName : ''
-  let obj = {
-    metadata:{
-      projectName: answers.projectName, 
-      author: answers.author, 
-      description: answers.description
-    },
-    src: moveDest,
-    dest: moveDest,
-    auto:  answers.auto,
-    del: ['LICENSE','README.md']
-  }
-  if(info.repo == 'local'){
-    obj.src = info.uri
-    download.moveLocalFiles(obj)
-  }else{
-    download.getTemplate(info,downDest,()=>{
+prompts.getOfficialPrompts((questions) => {
+  inquirer.prompt(questions).then((answers) => {
+    let info = download.getTemplateRepo(answers.template)
+    let downDest = answers.newFolder ? answers.projectName : './'
+    let moveDest = answers.newFolder ? answers.projectName : ''
+    let obj = {
+      metadata: {
+        projectName: answers.projectName,
+        author: answers.author,
+        description: answers.description
+      },
+      src: moveDest,
+      dest: moveDest,
+      auto: answers.auto,
+      del: ['LICENSE', 'README.md']
+    }
+    if (info.repo === 'local') {
+      obj.src = info.uri
       download.moveLocalFiles(obj)
-    })
-  }
+    } else {
+      download.getTemplate(info, downDest, () => {
+        download.moveLocalFiles(obj)
+      })
+    }
+  })
 })

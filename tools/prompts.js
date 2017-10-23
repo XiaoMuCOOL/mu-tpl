@@ -1,51 +1,53 @@
-const list = require('../tools/list')
+const download = require('../tools/download')
 
 class Prompts {
   constructor () {
     this.visions = '0.0.1'
   }
-  getOfficialPrompts () {
-    let choices = []
-    for (let i in list) {
-      let tpl = {
-        name: list[i].name,
-        value: list[i].url,
-        short: list[i].name
+  getOfficialPrompts (cb) {
+    download.getListJson((list) => {
+      let choices = []
+      for (let i in list) {
+        let tpl = {
+          name: list[i].name,
+          value: list[i].url,
+          short: list[i].name
+        }
+        choices.push(tpl)
       }
-      choices.push(tpl)
-    }
-    let questions = [{
-      type: 'input',
-      name: 'projectName',
-      message: 'Project name(项目名称) - ',
-      default: 'mu-tpl'
-    }, {
-      type: 'input',
-      name: 'author',
-      message: 'Author(作者) - ',
-      default: 'your name'
-    }, {
-      type: 'input',
-      name: 'description',
-      message: 'Project description(项目介绍) - ',
-      default: '基于mu-tpl生成的项目'
-    }, {
-      type: 'list',
-      name: 'template',
-      message: 'Choose a template(选择一个模板) - ',
-      choices: choices
-    }, {
-      type: 'confirm',
-      name: 'newFolder',
-      message: 'Generate project in new folder(新建文件夹创建项目)? ',
-      default: true
-    }, {
-      type: 'confirm',
-      name: 'auto',
-      message: 'Auto npm install(自动安装依赖)? ',
-      default: false
-    }]
-    return questions
+      let questions = [{
+        type: 'input',
+        name: 'projectName',
+        message: 'Project name(项目名称) - ',
+        default: 'mu-tpl'
+      }, {
+        type: 'input',
+        name: 'author',
+        message: 'Author(作者) - ',
+        default: 'your name'
+      }, {
+        type: 'input',
+        name: 'description',
+        message: 'Project description(项目介绍) - ',
+        default: '基于mu-tpl生成的项目'
+      }, {
+        type: 'list',
+        name: 'template',
+        message: 'Choose a template(选择一个模板) - ',
+        choices: choices
+      }, {
+        type: 'confirm',
+        name: 'newFolder',
+        message: 'Generate project in new folder(新建文件夹创建项目)? ',
+        default: true
+      }, {
+        type: 'confirm',
+        name: 'auto',
+        message: 'Auto npm install(自动安装依赖)? ',
+        default: false
+      }]
+      cb(questions)
+    })
   }
   getAddTemplatePrompts () {
     let questions = [{

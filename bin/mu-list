@@ -1,9 +1,7 @@
 #!/usr/bin/env node --harmony
-const request = require('request')
 const chalk = require('chalk')
 const logger = require('../tools/logger')
-const list = require('../tools/list')
-const fs = require('fs')
+const download = require('../tools/download')
 
 /**
  * Padding
@@ -17,43 +15,18 @@ process.on('exit', function () {
 /**
  * List repos
  */
-let isChange = false
-request({
-  url: 'https://raw.githubusercontent.com/XiaoMuCOOL/mu-tpl/master/tools/list.json',
-  headers: {
-    'User-Agent': 'mu-tpl'
-  }
-},  (err, res, body) =>{
-  if (err) logger.fatal(err)
-  let reqTpl = JSON.parse(body)
-  let localTpl = list
-  for(let tpl in reqTpl){
-    if(!localTpl[tpl]){
-      localTpl[tpl] = reqTpl[tpl]
-      isChange = true
-    }
-  }
-  if (isChange) {
-    fs.writeFile(
-      __dirname + "/../tools/list.json",
-      JSON.stringify(localTpl),
-      "utf-8",
-      err => {
-        if (err) logger.fatal(err)
-      }
-    )
-  }
+download.getListJson((localTpl) => {
   logger.successd('Available templates(可用的模板有):')
   console.log()
-  for(let index in localTpl){
+  for (let index in localTpl) {
     let tpl = localTpl[index]
-    let strLocal = "official(官方)"
-    if(tpl.isLocal){
-      strLocal = "local   (本地)"
+    let strLocal = 'official(官方)'
+    if (tpl.isLocal) {
+      strLocal = 'local   (本地)'
     }
     console.log(
       '  ' + chalk.yellow('★') +
-      '  ' + chalk.gray(strLocal+'  ') + chalk.blue(tpl.name) +
+      '  ' + chalk.gray(strLocal + '  ') + chalk.blue(tpl.name) +
       ' - ' + tpl.description)
   }
 })

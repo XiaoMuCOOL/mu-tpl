@@ -1,6 +1,6 @@
 {
   "name": "mu-tpl",
-  "version": "0.9.3",
+  "version": "1.0.1",
   "description": "Mu-tpl is a variety of framework scaffold generators, quick custom templates.(各种框架脚手架的生成器，快速自定义模板。)",
   "author": {
     "name": "XiaoMuCOOL",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "mu",
-    "lint": "standard --fix"
+    "lint": "standard bin/** tools/*.js --fix"
   },
   "repository": {
     "type": "git",
@@ -45,7 +45,9 @@
     "inquirer": "^3.2.1",
     "metalsmith": "^2.3.0",
     "ora": "^1.3.0",
-    "request": "^2.81.0"
+    "pkg-updater": "^1.0.3",
+    "request": "^2.81.0",
+    "user-home": "^2.0.0"
   },
   "readme": "ERROR: No README data found!",
   "devDependencies": {
