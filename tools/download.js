@@ -73,7 +73,7 @@ class Download {
     Metalsmith('.')
     .metadata(obj.metadata)
     .source(obj.src)
-    .ignore('.git/**/**.**')
+    .ignore('**/.git/**/*')
     .destination(obj.dest)
     .clean(false)
     .use(that.getTemplateFiles())
